@@ -10,22 +10,29 @@ class App extends Component {
     super();
     this.state = {
       isLoading: true,
-      articles: []
+      articles: [],
+      sources: []
     }
   }
 
   componentDidMount() {
+
     fetch('https://newsapi.org/v2/everything?sources=associated-press&apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
       .then(resp => resp.json())
       .then(articles => this.setState({articles, isLoading:false})
     )
+
+    fetch('https://newsapi.org/v2/sources?apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
+      .then(resp => resp.json())
+      .then(sources => this.setState({sources}))
+
   }
 
   render() {
     return (
       <div className="App">
         < NavBar />
-        {this.state.isLoading ? <h1>Loading Articles...</h1> : < Newsfeed articles={this.state.articles}/>}
+        {this.state.isLoading ? <h1>Loading Articles...</h1> : < Newsfeed articles={this.state.articles} sources={this.state.sources}/>}
       </div>
     );
   }
