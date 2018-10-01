@@ -5,10 +5,10 @@ export default class NavBar extends Component {
   render() {
     return(
       <div className="navWrapper">
-			<span className="headerText">The Stand</span>
-			<div>
+  			<span className="headerText">
+          <h1>The Stand</h1>
 					<img src="https://png.icons8.com/ios/1600/newsstand.png" className="App-logo" alt="news stand" />
-			</div>
+			</span>
 			<span className="normalText">Your virtual news!</span>
 		</div>
     )
