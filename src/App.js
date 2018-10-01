@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Newsfeed from './Containers/Newsfeed'
 import NavBar from './Containers/NavBar'
+import SearchBar from './Components/SearchBar'
+import UserCard from './Containers/UserCard'
 import './App.css';
 
 class App extends Component {
@@ -31,8 +33,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        < NavBar />
-        {this.state.isLoading ? <h1>Loading Articles...</h1> : < Newsfeed articles={this.state.articles} sources={this.state.sources}/>}
+        { this.state.isLoading ? <h1>Loading Articles...</h1> :
+          <div>
+            <NavBar articles={this.state.articles} sources={this.state.sources}/>
+            <SearchBar articles={this.state.articles} sources={this.state.sources}/>
+            <UserCard articles={this.state.articles} sources={this.state.sources}/>
+            <Newsfeed articles={this.state.articles} sources={this.state.sources}/>
+          </div>}
       </div>
     );
   }

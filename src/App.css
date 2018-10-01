@@ -3,12 +3,13 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+float: left;
+width: 100px;
+height: 100px;
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #BB90FA;
   height: 150px;
   padding: 20px;
   color: white;
