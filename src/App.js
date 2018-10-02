@@ -32,6 +32,8 @@ class App extends Component {
   }
 
   render() {
+    // console.log('Articles: ', this.state.articles)
+    // console.log('Sources: ', this.state.sources)
     return (
       <div className="App">
         { this.state.isLoading ? <h1>Loading Articles...</h1> :
