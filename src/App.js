@@ -13,24 +13,35 @@ class App extends Component {
     this.state = {
       isLoading: true,
       articles: [],
-      sources: []
+      sources: [],
+      filteredArticles: []
     }
   }
 
   componentDidMount() {
 
-    fetch('https://newsapi.org/v2/everything?sources=associated-press&apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
+    fetch('https://newsapi.org/v2/everything?sources=associated-press,medical-news-today,ars-technica,fox-sports,buzzfeed,hacker-news,national-geographic&apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
       .then(resp => resp.json())
-      .then(articles => this.setState({articles, isLoading:false})
+      .then(resp => this.setState({articles: resp.articles, isLoading:false})
     )
 
     fetch('https://newsapi.org/v2/sources?apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
       .then(resp => resp.json())
-      .then(sources => this.setState({sources}))
+      .then(data => this.setState({sources: data.sources}))
 
   }
 
+  // filteredArticles = () => {
+  //   this.articles.map(article =>(
+  //
+  //
+  //   ))
+  // }
+
+
+
   render() {
+    console.log(this.state.articles)
     return (
       <div className="App">
         { this.state.isLoading ? <h1>Loading Articles...</h1> :
@@ -38,7 +49,7 @@ class App extends Component {
             <NavBar articles={this.state.articles} sources={this.state.sources}/>
             <SearchBar articles={this.state.articles} sources={this.state.sources}/>
             <UserCard articles={this.state.articles} sources={this.state.sources}/>
-            <Newsfeed articles={this.state.articles} sources={this.state.sources}/>
+            <Newsfeed articles={this.state.articles} />
           </div>}
       </div>
     );
