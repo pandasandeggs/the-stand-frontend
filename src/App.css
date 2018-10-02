@@ -3,9 +3,10 @@
 }
 
 .App-logo {
-float: left;
-width: 100px;
-height: 100px;
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
 }
 
 .App-header {
@@ -23,7 +24,17 @@ height: 100px;
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.normal-text {
+  text-align: center;
+}
+
+.user-card {
+  border-style: solid;
+  float: left;
+}
+
+.checkboxes {
+  display: block;
+  float:left;
+  margin: auto;
 }
