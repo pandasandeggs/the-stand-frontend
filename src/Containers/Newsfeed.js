@@ -6,7 +6,7 @@ export default class Newsfeed extends Component {
   render() {
     return(
       <div>
-      
+        
       </div>
     )
   }
