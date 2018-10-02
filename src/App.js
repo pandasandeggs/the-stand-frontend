@@ -41,7 +41,9 @@ class App extends Component {
 
 
   render() {
+
     console.log(this.state.articles)
+
     return (
       <div className="App">
         { this.state.isLoading ? <h1>Loading Articles...</h1> :
