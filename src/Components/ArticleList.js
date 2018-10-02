@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import Article from '../Components/Article'
+import ArticleCard from '../Components/ArticleCard'
 
 export default class ArticleList extends Component {
 
-  displayArticleList = () => {
+  // updateNewsfeed = () => (
+  //
+  // )
 
+  // removeArticleFromNewsfeed = () => (
+  //
+  // )
+
+  renderNewsfeed = () => {
+      return (
+        this.props.articles.map(article => (
+         <ArticleCard article={article} filteredArticles={this.props.filteredArticles} articles={this.props.articles}/>
+       ))
+     )
   }
 
-    render() {
-
-      return (
-        <div>
-        </div>
-        )
-      }
-
+  render() {
+    return(
+      <div id="Newsfeed">
+       {this.renderNewsfeed()}
+      </div>
+    )
+  }
 
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Article from '../Components/Article'
+import ArticleList from '../Components/ArticleList'
 
 export default class Newsfeed extends Component {
 
@@ -11,19 +11,11 @@ export default class Newsfeed extends Component {
   //
   // )
 
-  renderNewsfeed = () => {
-    console.log(this.props.articles)
-      return (
-        this.props.articles.map(article => (
-         <Article article={article} />
-       ))
-     )
-  }
 
   render() {
     return(
       <div id="Newsfeed">
-       {this.renderNewsfeed()}
+       <ArticleList articles={this.props.articles} filteredArticles={this.props.filteredArticles}/>
       </div>
     )
   }

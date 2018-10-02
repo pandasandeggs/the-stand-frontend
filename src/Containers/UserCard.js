@@ -22,19 +22,9 @@ export default class UserCard extends Component {
 
 
 
-  getArticleCategories = () => {
-    return this.props.articles.map( article => {
-      const category = this.props.sources.find( source => {
-        return article.source.id === source.id
-      })
-      const categoryName = category ? category.category : null
-      return {...article, category:categoryName}
-    })
-  }
-
   render() {
     return(
-        <UserInfo categories={this.renderCategories()} articles={this.getArticleCategories()} />
+        <UserInfo handleChoose={this.props.handleChoose} categories={this.renderCategories()} />
     )
   }
 }

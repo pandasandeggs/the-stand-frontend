@@ -29,6 +29,15 @@
 }
 
 .user-card {
+  width: 30%;
+  display: inline-block;
+  border-style: solid;
+  float: left;
+}
+
+#Newsfeed {
+  width: 70%;
+  display: inline-block;
   border-style: solid;
   float: left;
 }
