@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       isLoading: true,
       articles: [],
-      sources: []
+      sources: [],
+      filteredArticles: []
     }
   }
 
@@ -25,15 +26,24 @@ class App extends Component {
 
     fetch('https://newsapi.org/v2/sources?apiKey=0ee37ea5b6c443cda2481bd0cdb71c13')
       .then(resp => resp.json())
-      .then(data => {
-        this.setState({sources: data.sources})
-      })
+
+      .then(data => this.setState({sources: data.sources}))
 
   }
 
+  // filteredArticles = () => {
+  //   this.articles.map(article =>(
+  //
+  //
+  //   ))
+  // }
+
+
+
   render() {
-    // console.log('Articles: ', this.state.articles)
-    // console.log('Sources: ', this.state.sources)
+
+    console.log(this.state.articles)
+
     return (
       <div className="App">
         { this.state.isLoading ? <h1>Loading Articles...</h1> :
@@ -42,7 +52,7 @@ class App extends Component {
             <SearchBar articles={this.state.articles} sources={this.state.sources}/>
             <UserCard className="user-card" articles={this.state.articles} sources={this.state.sources}/>
             <Newsfeed articles={this.state.articles} sources={this.state.sources}/>
-          </div>}
+          </div> }
       </div>
     );
   }
