@@ -3,26 +3,17 @@ import ArticleCard from '../Components/ArticleCard'
 
 export default class ArticleList extends Component {
 
-  // updateNewsfeed = () => (
-  //
-  // )
-
-  // removeArticleFromNewsfeed = () => (
-  //
-  // )
-
-  renderNewsfeed = () => {
-      return (
-        this.props.articles.map(article => (
-         <ArticleCard article={article} filteredArticles={this.props.filteredArticles} articles={this.props.articles}/>
-       ))
-     )
+  generateArticleCards = () => {
+    return this.props.articles.map(article => {
+      return <ArticleCard article={article} getAllArticles={this.props.getAllArticles} selectArticle={this.props.selectArticle}
+      displayArticle={this.props.displayArticle} />
+     })
   }
 
   render() {
     return(
       <div id="Newsfeed">
-       {this.renderNewsfeed()}
+       {this.generateArticleCards()}
       </div>
     )
   }

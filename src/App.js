@@ -14,7 +14,9 @@ class App extends Component {
       isLoading: true,
       articles: [],
       sources: [],
-      selectedCategories: []
+      selectedCategories: [],
+      displayArticle: {},
+      isArticleClicked: false
     }
   }
 
@@ -31,7 +33,12 @@ class App extends Component {
 
   }
 
-  filteredArticles = (article) => {
+  selectArticle = (clickedArticle) =>{
+    this.setState({ displayArticle: clickedArticle, isArticleClicked: true})
+
+  }
+
+  getAllArticles = (article) => {
     this.state.articles.map(article =>(
       <ArticleList article={article}/>
     ))
@@ -74,15 +81,19 @@ class App extends Component {
    }
 
   render() {
-
+    console.log(this.state)
     return (
       <div className="App">
         { this.state.isLoading ? <h1>Loading Articles...</h1> :
           <div>
             <NavBar articles={this.state.articles} sources={this.state.sources}/>
             <SearchBar articles={this.state.articles} sources={this.state.sources}/>
-            <UserCard className="user-card" articles={this.state.articles} sources={this.state.sources} filteredArticles={this.filteredArticles} handleChoose={this.handleChoose}/>
-            <Newsfeed articles={this.getFilteredArticles()} sources={this.state.sources} filteredArticles={this.filteredArticles} articleCategories={this.getArticleWithCategories}/>
+            <UserCard className="user-card" articles={this.state.articles} sources={this.state.sources} getAllArticles={this.getAllArticles} handleChoose={this.handleChoose}/>
+            <Newsfeed articles={this.getFilteredArticles()} sources={this.state.sources} getAllArticles={this.getallArticles} articleCategories={this.getArticleWithCategories}
+            selectArticle={this.selectArticle}
+            displayArticle={this.state.displayArticle}
+            />
+
           </div> }
       </div>
     );

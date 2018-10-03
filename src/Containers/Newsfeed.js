@@ -15,7 +15,9 @@ export default class Newsfeed extends Component {
   render() {
     return(
       <div id="Newsfeed">
-       <ArticleList articles={this.props.articles} filteredArticles={this.props.filteredArticles}/>
+       <ArticleList articles={this.props.articles} getAllArticles={this.props.getAllArticles}
+       selectArticle={this.props.selectArticle}
+       displayArticle={this.props.displayArticle}/>
       </div>
     )
   }
