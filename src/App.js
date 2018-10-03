@@ -14,7 +14,7 @@ class App extends Component {
       isLoading: true,
       articles: [],
       sources: [],
-      selectedCategories: ["all"]
+      selectedCategories: []
     }
   }
 
@@ -62,7 +62,7 @@ class App extends Component {
          this.setState({
            selectedCategories: [...this.state.selectedCategories, event.target.name]
          })
-       } else if {
+       } else {
         // the category checked equals one already here, take it out instead of adding it the the current state
        }
      }
@@ -82,7 +82,7 @@ class App extends Component {
             <NavBar articles={this.state.articles} sources={this.state.sources}/>
             <SearchBar articles={this.state.articles} sources={this.state.sources}/>
             <UserCard className="user-card" articles={this.state.articles} sources={this.state.sources} filteredArticles={this.filteredArticles} handleChoose={this.handleChoose}/>
-            <Newsfeed articles={this.getFilteredArticles()} sources={this.state.sources} filteredArticles={this.filteredArticles} articleCategories={this.getArticleCategories}/>
+            <Newsfeed articles={this.getFilteredArticles()} sources={this.state.sources} filteredArticles={this.filteredArticles} articleCategories={this.getArticleWithCategories}/>
           </div> }
       </div>
     );
